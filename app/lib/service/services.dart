@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async' show FutureOr, Zone;
+import 'dart:io';
 
 import 'package:appengine/appengine.dart';
 import 'package:fake_gcloud/mem_datastore.dart';
@@ -47,6 +48,9 @@ import '../shared/redis_cache.dart' show setupCache;
 import '../shared/storage.dart';
 import '../shared/urls.dart';
 import '../shared/versions.dart';
+import '../tool/trace_profiler/trace_profiler.dart';
+import '../tool/trace_profiler/tracing_datastore.dart';
+import '../tool/trace_profiler/tracing_storage.dart';
 import '../tool/utils/http.dart';
 
 import 'announcement/backend.dart';
@@ -146,6 +150,18 @@ Future<void> withFakeServices({
 /// tools and integration tests.
 Future<void> _withPubServices(FutureOr<void> Function() fn) async {
   return fork(() async {
+    if (activeConfiguration.projectId != 'dartlang-pub'
+        // && Platform.environment.containsKey('PUB_TRACER')
+        ) {
+      final rate = int.tryParse(Platform.environment['PUB_TRACER'] ?? '1') ?? 1;
+      final tracer = SamplingTraceProfiler(rate: rate);
+      registerDbService(
+          DatastoreDB(TracingDatastore(dbService.datastore, tracer)));
+      registerStorageService(TracingStorage(storageService, tracer));
+      final traceSubscription = tracer.stream.listen(traceAggregator.add);
+      registerScopeExitCallback(traceSubscription.cancel);
+    }
+
     registerAccountBackend(AccountBackend(dbService));
     registerAdminBackend(AdminBackend(dbService));
     registerAnalyzerClient(AnalyzerClient());

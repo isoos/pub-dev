@@ -9,6 +9,7 @@ import 'package:logging/logging.dart';
 import 'package:shelf/shelf.dart' as shelf;
 
 import '../frontend/request_context.dart';
+import '../tool/trace_profiler/trace_profiler.dart';
 import '../tool/utils/event_loop_tracker.dart';
 
 import 'popularity_storage.dart';
@@ -116,6 +117,7 @@ shelf.Response debugResponse([Map<String, dynamic> data]) {
       }
     },
     'scheduler': latestSchedulerStats,
+    'traces': traceAggregator.stats(),
   };
   if (data != null) {
     map.addAll(data);

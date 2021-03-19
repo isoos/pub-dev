@@ -18,6 +18,7 @@ import '../../shared/handler_helpers.dart';
 import '../../shared/popularity_storage.dart';
 import '../../shared/scheduler_stats.dart';
 import '../../tool/neat_task/pub_dev_tasks.dart';
+import '../../tool/trace_profiler/trace_profiler.dart';
 
 import '../services.dart';
 
@@ -73,7 +74,10 @@ Future _workerMain(WorkerEntryMessage message) async {
     final jobMaintenance = JobMaintenance(db.dbService, jobProcessor);
 
     Timer.periodic(const Duration(minutes: 15), (_) async {
-      message.statsSendPort.send(await jobBackend.stats(JobService.analyzer));
+      message.statsSendPort.send({
+        'jobs': await jobBackend.stats(JobService.analyzer),
+        'traces': traceAggregator.stats(),
+      });
     });
 
     await jobMaintenance.run();

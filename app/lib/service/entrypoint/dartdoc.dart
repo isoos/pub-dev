@@ -18,6 +18,7 @@ import '../../shared/handler_helpers.dart';
 import '../../shared/popularity_storage.dart';
 import '../../shared/scheduler_stats.dart';
 import '../../tool/neat_task/pub_dev_tasks.dart';
+import '../../tool/trace_profiler/trace_profiler.dart';
 
 import '../services.dart';
 
@@ -80,6 +81,7 @@ Future _workerMain(WorkerEntryMessage message) async {
       message.statsSendPort.send({
         'backend': await jobBackend.stats(JobService.dartdoc),
         'processor': jobProcessor.stats(),
+        'traces': traceAggregator.stats(),
       });
     });
 
