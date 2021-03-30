@@ -49,11 +49,12 @@ abstract class _BaseTraceProfiler implements TraceProfiler {
   @override
   R trace<R>(R Function() fn) {
     if (_controller.hasListener && shouldSelect()) {
+      final trace = Trace.current(1);
       final sw = Stopwatch()..start();
       try {
         return fn();
       } finally {
-        _emit(sw.elapsed);
+        _emit(trace, sw.elapsed);
       }
     } else {
       return fn();
@@ -63,11 +64,12 @@ abstract class _BaseTraceProfiler implements TraceProfiler {
   @override
   Future<R> traceFuture<R>(Future<R> Function() fn) async {
     if (_controller.hasListener && shouldSelect()) {
+      final trace = Trace.current(1);
       final sw = Stopwatch()..start();
       try {
         return await fn();
       } finally {
-        _emit(sw.elapsed);
+        _emit(trace, sw.elapsed);
       }
     } else {
       return await fn();
@@ -77,11 +79,12 @@ abstract class _BaseTraceProfiler implements TraceProfiler {
   @override
   Stream<R> traceStream<R>(Stream<R> Function() fn) async* {
     if (_controller.hasListener && shouldSelect()) {
+      final trace = Trace.current(1);
       final sw = Stopwatch()..start();
       try {
         yield* fn();
       } finally {
-        _emit(sw.elapsed);
+        _emit(trace, sw.elapsed);
       }
     } else {
       yield* fn();
@@ -96,9 +99,8 @@ abstract class _BaseTraceProfiler implements TraceProfiler {
 
   Stream<TraceDuration> get stream => _controller.stream;
 
-  void _emit(Duration duration) {
-    _controller.add(
-        TraceDuration(Trace.current(2), duration)); // level = _emit + trace*
+  void _emit(Trace trace, Duration duration) {
+    _controller.add(TraceDuration(trace, duration)); // level = _emit + trace*
   }
 }
 
@@ -135,7 +137,7 @@ class TraceDurationAggregator {
 
   bool _includeFrame(Frame frame) {
     return !frame.isCore &&
-        frame.library != 'package:pub_dev/shared/datastore.dart' &&
+        !frame.library.startsWith('package:pub_dev/shared/datastore.dart') &&
         !frame.library.startsWith('package:stack_trace/') &&
         !frame.library.startsWith('package:retry/');
   }
@@ -177,7 +179,6 @@ class TraceTreeNode {
     node.count++;
     node.duration += duration;
     for (final frame in frames) {
-      if (frame.isCore) continue;
       final childId = '${frame.member} in ${frame.location}';
       node.children ??= <TraceTreeNode>[];
       final child = node.children.firstWhere(
