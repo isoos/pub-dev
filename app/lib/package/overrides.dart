@@ -24,6 +24,7 @@ final _reservedPackageNames = <String>[
   'in_app_purchase',
   'location_background',
   'math',
+  'macros',
   'mirrors',
   'developer',
   'pub',
