@@ -245,7 +245,7 @@ Future<({String configKind, String? dartSdkPath, String? flutterSdkPath})>
   // fall back to the latest dev/master branch (last item always present and matching)
   final latestSdkBundles = await _detectSdkBundles();
   for (final bundle in latestSdkBundles) {
-    final matchesBundle = bundle.configKind == 'master' ||
+    final matchesBundle = bundle.channel == 'master' ||
         matchesSdks(
           dart: bundle.semanticDartVersion,
           flutter: bundle.semanticFlutterVersion,
@@ -253,19 +253,19 @@ Future<({String configKind, String? dartSdkPath, String? flutterSdkPath})>
     if (matchesBundle) {
       final dartSdkPath = await _installSdk(
         sdkKind: 'dart',
-        configKind: bundle.configKind,
+        configKind: bundle.channel,
         version: bundle.dart,
         channel: bundle.channel,
       );
       final flutterSdkPath = await _installSdk(
         sdkKind: 'flutter',
-        configKind: bundle.configKind,
+        configKind: bundle.channel,
         version: bundle.flutter,
         channel: bundle.channel,
       );
 
       return (
-        configKind: bundle.configKind,
+        configKind: bundle.channel,
         dartSdkPath: dartSdkPath,
         flutterSdkPath: flutterSdkPath,
       );
@@ -327,13 +327,11 @@ Future<String?> _installSdk({
 
 class _SdkBundle {
   final String channel;
-  final String configKind;
   final String dart;
   final String flutter;
 
   _SdkBundle({
     required this.channel,
-    required this.configKind,
     required this.dart,
     required this.flutter,
   });
@@ -359,20 +357,17 @@ Future<List<_SdkBundle>> _detectSdkBundles() async {
         latestStableFlutterSdkVersion != null)
       _SdkBundle(
         channel: 'stable',
-        configKind: 'latest-stable',
         dart: latestStableDartSdkVersion,
         flutter: latestStableFlutterSdkVersion,
       ),
     if (latestBetaDartSdkVersion != null && latestBetaFlutterSdkVersion != null)
       _SdkBundle(
         channel: 'beta',
-        configKind: 'latest-beta',
         dart: latestBetaDartSdkVersion,
         flutter: latestBetaFlutterSdkVersion,
       ),
     _SdkBundle(
       channel: 'master',
-      configKind: 'master',
       dart: 'master',
       flutter: 'master',
     ),
