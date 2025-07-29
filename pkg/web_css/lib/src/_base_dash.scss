@@ -7,7 +7,9 @@
 
 // *** Layout ****
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   // Need to set borders around elements explicitly.
   border-width: 0;
 
@@ -37,13 +39,21 @@ body {
 }
 
 // Inherit fonts for inputs and buttons.
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
 }
 
 // Balance text wrapping on headings.
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 

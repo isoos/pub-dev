@@ -2,14 +2,14 @@
    for details. All rights reserved. Use of this source code is governed by a
    BSD-style license that can be found in the LICENSE file. */
 
-@use 'variables';
+@use "variables";
 
 $info-box-width: 190px;
-$info-box-margin:        120px;
-$info-box-tablet-margin:  40px;
-$info-box-total-width:       320px; /* 190 + 120 + 10 (extra space for layout) */
+$info-box-margin: 120px;
+$info-box-tablet-margin: 40px;
+$info-box-total-width: 320px; /* 190 + 120 + 10 (extra space for layout) */
 $info-box-table-total-width: 240px; /* 190 +  40 + 10 (extra space for layout) */
-$detail-tabs-width:        calc(100% - 320px);
+$detail-tabs-width: calc(100% - 320px);
 $detail-tabs-tablet-width: calc(100% - 240px);
 
 .-wide-header-detail-page {
@@ -287,12 +287,11 @@ $detail-tabs-tablet-width: calc(100% - 240px);
 
 @media (min-width: variables.$device-desktop-min-width) {
   .detail-body {
-
-    >.detail-tabs {
+    > .detail-tabs {
       vertical-align: top;
     }
 
-    >.detail-info-box {
+    > .detail-info-box {
       display: inline-block;
       margin-left: $info-box-margin;
       width: $info-box-width;

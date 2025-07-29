@@ -6,7 +6,7 @@
   site header
 ******************************************************/
 
-@use 'variables';
+@use "variables";
 
 /*
   The site logo should be hidden on mobile on the landing page (and only on that),
@@ -35,7 +35,6 @@
 
   @media (max-width: variables.$device-mobile-max-width) {
     &:focus-within {
-
       .hamburger,
       .site-logo {
         opacity: 0.3;
@@ -59,7 +58,7 @@
     height: 40px;
     background-position: center;
     margin-right: 18px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfjBB0KByvlnQBfAAAANklEQVRYw+3TsQkAMAgAQZP9dzZVwAESRLjrbBSLjwDot+qQ+Whp2bp/fzD/AChZyaBkJQNcB6AzBhZq14GdAAAAAElFTkSuQmCC');
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfjBB0KByvlnQBfAAAANklEQVRYw+3TsQkAMAgAQZP9dzZVwAESRLjrbBSLjwDot+qQ+Whp2bp/fzD/AChZyaBkJQNcB6AzBhZq14GdAAAAAElFTkSuQmCC");
     background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0.8;
@@ -86,7 +85,7 @@
     }
 
     &:hover {
-      opacity: 1.0;
+      opacity: 1;
     }
   }
 
@@ -133,7 +132,9 @@
       background-repeat: no-repeat;
       background-position: right;
       background-size: 23px 23px;
-      transition: width 0.4s ease-in-out, background-color 0.4s linear;
+      transition:
+        width 0.4s ease-in-out,
+        background-color 0.4s linear;
 
       border: none;
       border-radius: 5px;
@@ -172,7 +173,7 @@
     padding: 8px 10px 8px 0px;
     background-color: transparent;
     color: inherit;
-    opacity: 1.0;
+    opacity: 1;
 
     &:hover {
       opacity: 0.8;
@@ -227,7 +228,6 @@
   }
 
   .site-header-nav {
-
     /* Navigation styles for mobile. */
     @media (max-width: variables.$device-mobile-max-width) {
       position: fixed;
@@ -359,7 +359,7 @@
           padding: 12px;
           min-width: 100px;
 
-          >h3 {
+          > h3 {
             border-bottom: 1px solid var(--pub-site_header_popup-border-color);
           }
         }

@@ -6,7 +6,7 @@
   home page
 ******************************************************/
 
-@use 'variables';
+@use "variables";
 
 .home-banner {
   text-align: center;
@@ -60,7 +60,7 @@
 }
 
 .landing-main {
-  background-image: url('../img/square-bg-full-2x.webp');
+  background-image: url("../img/square-bg-full-2x.webp");
   background-position: center top;
   background-repeat: repeat-y;
   background-size: 1440px 2279px;
@@ -120,7 +120,10 @@
       @media (min-width: variables.$device-desktop-min-width) {
         .mini-list-item-body {
           &:before {
-            background: linear-gradient(transparent 90%, var(--pub-neutral-hover-bgColor));
+            background: linear-gradient(
+              transparent 90%,
+              var(--pub-neutral-hover-bgColor)
+            );
           }
         }
       }
@@ -207,14 +210,17 @@
 
       // fade-out the bottom of the body content
       &:before {
-         content: '';
-         position: absolute;
-         left: 0;
-         top: 0;
-         bottom: 0;
-         right: 0;
-         background: linear-gradient(transparent 90%, var(--pub-neutral-bgColor));
-       }
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(
+          transparent 90%,
+          var(--pub-neutral-bgColor)
+        );
+      }
     }
   }
 
@@ -295,12 +301,18 @@
     position: relative;
 
     // compensate default link hover effects
-    a { filter: none; }
+    a {
+      filter: none;
+    }
 
     &:hover,
     &:focus-within {
-      .pow-video-overlay-img-active { display: inline-block; }
-      .pow-video-overlay-img-inactive { display: none; }
+      .pow-video-overlay-img-active {
+        display: inline-block;
+      }
+      .pow-video-overlay-img-inactive {
+        display: none;
+      }
     }
   }
 

@@ -2,7 +2,7 @@
    for details. All rights reserved. Use of this source code is governed by a
    BSD-style license that can be found in the LICENSE file. */
 
-@use 'variables';
+@use "variables";
 
 .listing-info {
   display: flex;
@@ -97,9 +97,13 @@
   }
 }
 
-.overflow-hidden { overflow: hidden;}
+.overflow-hidden {
+  overflow: hidden;
+}
 
-.overflow-auto {overflow: auto;}
+.overflow-auto {
+  overflow: auto;
+}
 
 .carousel {
   position: fixed;
@@ -140,8 +144,8 @@
 
     &:hover {
       background-color: var(--pub-carousel_nav_hover-background-color);
-     }
-   }
+    }
+  }
 
   .carousel-next {
     right: 10px;
@@ -161,9 +165,9 @@
     background: var(--pub-carousel_screenshot-background-color);
     border-radius: 25px;
     max-width: 35%;
-    padding:12px;
+    padding: 12px;
   }
- }
+}
 
 .thumbnail-image {
   border: solid 1px #d5d4d4;
@@ -411,7 +415,7 @@
       width: 12px;
 
       transform: rotate(180deg);
-      transition: transform .3s linear;
+      transition: transform 0.3s linear;
     }
 
     &.-active {

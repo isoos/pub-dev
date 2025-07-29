@@ -6,7 +6,7 @@
   searchbar
 ******************************************************/
 
-@use 'variables';
+@use "variables";
 
 .search-bar {
   display: flex;
@@ -22,7 +22,7 @@
     max-width: 880px;
   }
 
-  >.input {
+  > .input {
     font-size: 16px;
     padding: 15px 24px 14px 48px;
     border: none;
@@ -55,7 +55,7 @@
     }
   }
 
-  >.icon {
+  > .icon {
     width: 45px;
     height: 45px;
     background-color: var(--pub-link-text-color);
@@ -72,7 +72,7 @@
     .home-banner & {
       @media (min-width: variables.$device-desktop-min-width) {
         left: 20px;
-        transform: scale(1.0);
+        transform: scale(1);
       }
     }
   }
@@ -127,7 +127,7 @@
   margin-left: 48px; // counter padding-left on .search-bar>.input
   margin-top: -14px; // counter padding-top on .search-bar>.input
 
-  >.completion-option {
+  > .completion-option {
     cursor: pointer;
     white-space: nowrap;
     padding: 4px 8px;
@@ -142,7 +142,7 @@
     }
   }
 
-  >.completion-option-selected {
+  > .completion-option-selected {
     background-color: var(--pub-searchbar_suggest_hover-background-color);
   }
 }

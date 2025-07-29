@@ -6,16 +6,16 @@
 // to reduce the number of HTTP requests.
 
 // Note: this is not part of dartdoc
-@use '../../../third_party/css/github-markdown.css';
+@use "../../../third_party/css/github-markdown.css";
 
 // TODO: Consider using same github.css we use on pub.dev
-@use '../../../third_party/dartdoc/resources/github.css';
-@use '../../../third_party/dartdoc/resources/styles.css';
+@use "../../../third_party/dartdoc/resources/github.css";
+@use "../../../third_party/dartdoc/resources/styles.css";
 
-@use 'src/_staging_ribbon.scss';
+@use "src/_staging_ribbon.scss";
 
 // Included after dartdoc/resources in order to make sure we will be able to migrate to it.
-@use 'src/base_dash';
+@use "src/base_dash";
 
 // This is meant for a temporary override for highlight.js. We need to
 // figure out a better way to customize the syntax highlights for dark
@@ -51,5 +51,5 @@
 
 /* Note: override for the image path, as the dartdoc.css is served from /static/hash-<hash>/css/ */
 .tt-wrapper .typeahead {
-  background-image: url('../dartdoc/resources/search.svg');
+  background-image: url("../dartdoc/resources/search.svg");
 }

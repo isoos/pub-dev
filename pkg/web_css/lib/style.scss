@@ -4,24 +4,24 @@
 
 // Include third-party CSS into a single output file
 // to reduce the number of HTTP requests.
-@use 'src/_third_party';
+@use "src/_third_party";
 
 // Local styles and rules.
-@use 'src/_base_dash';
-@use 'src/_variables';
-@use 'src/_base';
-@use 'src/_alerts';
-@use 'src/_site_header';
-@use 'src/_activity_log';
-@use 'src/_detail_page';
-@use 'src/_footer';
-@use 'src/_form';
-@use 'src/_list';
-@use 'src/_home';
-@use 'src/_pkg';
-@use 'src/_report';
-@use 'src/_scores';
-@use 'src/_search';
-@use 'src/_staging_ribbon';
-@use 'src/_tags';
-@use 'src/_topics';
+@use "src/_base_dash";
+@use "src/_variables";
+@use "src/_base";
+@use "src/_alerts";
+@use "src/_site_header";
+@use "src/_activity_log";
+@use "src/_detail_page";
+@use "src/_footer";
+@use "src/_form";
+@use "src/_list";
+@use "src/_home";
+@use "src/_pkg";
+@use "src/_report";
+@use "src/_scores";
+@use "src/_search";
+@use "src/_staging_ribbon";
+@use "src/_tags";
+@use "src/_topics";

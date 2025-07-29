@@ -16,7 +16,7 @@
   border-top: 1px solid #eee;
   margin: 12px 0px;
 
-  >.foldable-button {
+  > .foldable-button {
     font-size: 18px;
     font-weight: 500;
     padding: 8px 0px;
@@ -31,7 +31,7 @@
     width: 12px;
 
     transform: rotate(90deg);
-    transition: transform .3s linear;
+    transition: transform 0.3s linear;
   }
 
   &.-active {
@@ -40,7 +40,7 @@
     }
   }
 
-  >.foldable-content {
+  > .foldable-content {
     margin-left: 28px; // foldable icon's margins + width
   }
 }

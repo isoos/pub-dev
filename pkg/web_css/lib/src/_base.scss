@@ -6,7 +6,7 @@
   site base
 ******************************************************/
 
-@use 'variables';
+@use "variables";
 
 body {
   background-color: var(--pub-neutral-bgColor);
@@ -37,17 +37,34 @@ body,
   font-weight: 400;
   font-size: 16px;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--pub-font-family-body);
     font-weight: 400;
   }
 
-  h1 { font-size: 36px; } // note: github uses 2em, ~32px
-  h2 { font-size: 24px; } // note: github uses 1.5em, ~24px
-  h3 { font-size: 21px; } // note: github uses 1.25em, ~20px
-  h4 { font-size: 18px; } // note: github uses 1em, ~16px
-  h5 { font-size: 17px; } // note: github uses 0.875em, ~14px
-  h6 { font-size: 16px; } // note: github uses 0.85em, ~13.6px
+  h1 {
+    font-size: 36px;
+  } // note: github uses 2em, ~32px
+  h2 {
+    font-size: 24px;
+  } // note: github uses 1.5em, ~24px
+  h3 {
+    font-size: 21px;
+  } // note: github uses 1.25em, ~20px
+  h4 {
+    font-size: 18px;
+  } // note: github uses 1em, ~16px
+  h5 {
+    font-size: 17px;
+  } // note: github uses 0.875em, ~14px
+  h6 {
+    font-size: 16px;
+  } // note: github uses 0.85em, ~13.6px
 }
 
 img {
@@ -60,7 +77,11 @@ summary {
   transition: background-color 0.3s;
 
   &:hover {
-    background: color-mix(in srgb, var(--pub-link-text-color), var(--pub-neutral-bgColor) 80%);
+    background: color-mix(
+      in srgb,
+      var(--pub-link-text-color),
+      var(--pub-neutral-bgColor) 80%
+    );
   }
 
   &:focus {
@@ -248,8 +269,8 @@ pre {
   }
 
   table {
-
-    td, th {
+    td,
+    th {
       padding: 12px 12px 12px 0; /* overrides github-markdown.css */
       border: none; /* overrides github-markdown.css */
     }
@@ -258,7 +279,9 @@ pre {
       border-top: none; /* overrides github-markdown.css */
 
       &:nth-child(2n) {
-        background-color: var(--pub-overlay-gray-08); /* overrides github-markdown.css */
+        background-color: var(
+          --pub-overlay-gray-08
+        ); /* overrides github-markdown.css */
       }
     }
 
@@ -370,8 +393,12 @@ pre {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hash-link {

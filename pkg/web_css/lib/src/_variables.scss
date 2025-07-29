@@ -2,7 +2,8 @@
    for details. All rights reserved. Use of this source code is governed by a
    BSD-style license that can be found in the LICENSE file. */
 
-@use '../../../../third_party/site-shared/dash_design/lib/styles/variables.scss' as dash_variables;
+@use "../../../../third_party/site-shared/dash_design/lib/styles/variables.scss"
+  as dash_variables;
 
 // suggested naming convention:
 //
@@ -23,12 +24,16 @@
 
 /// Variables that are not specific to the light or dark theme.
 :root {
-  --pub-font-family-headline: "Google Sans Display", "Google Sans", "Roboto", sans-serif;
-  --pub-font-family-body: "Google Sans Text", "Google Sans", "Roboto", sans-serif;
-  --pub-font-family-code: "Google Sans Mono", "Roboto Mono", "Source Code Pro", Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  --pub-font-family-headline:
+    "Google Sans Display", "Google Sans", "Roboto", sans-serif;
+  --pub-font-family-body:
+    "Google Sans Text", "Google Sans", "Roboto", sans-serif;
+  --pub-font-family-code:
+    "Google Sans Mono", "Roboto Mono", "Source Code Pro", Menlo,
+    "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
 
-  --pub-color-white:         #ffffff;
-  --pub-color-dangerRed:     #ff4242;
+  --pub-color-white: #ffffff;
+  --pub-color-dangerRed: #ff4242;
 
   // These colors are a combination of middle-gray (#808080) and a transparency
   // (alpha) channel, specifying an opaque color that mutes whatever the original
@@ -60,22 +65,29 @@
   --pub-searchbar_suggest_hover-background-color: #455060;
   --pub-searchbar_suggest-text-color: #a9a9a9;
 
-  --pub-site_header_banner-background-color: #1C2834;
+  --pub-site_header_banner-background-color: #1c2834;
   --pub-site_header_banner-text-color: #f8f9fa;
   --pub-site_header_banner_hover-background-color: #2b3d50; // 10% lighter than bg color
   --pub-site_header_popup-background-color: #1f3044;
   --pub-site_header_popup-text-color: #f8f9fa;
   --pub-site_header_popup-border-color: #4a5868; // mix of bg+fg color
 
-  --pub-carousel-background-color: rgba(0,0,0,0.85);
-  --pub-carousel_nav-background-color: rgba(0,0,0,0.7);
+  --pub-carousel-background-color: rgba(0, 0, 0, 0.85);
+  --pub-carousel_nav-background-color: rgba(0, 0, 0, 0.7);
   --pub-carousel_nav_hover-background-color: #4285f4;
-  --pub-carousel_screenshot-background-color: rgba(0,0,0,0.7);
+  --pub-carousel_screenshot-background-color: rgba(0, 0, 0, 0.7);
   --pub-carousel_screenshot-text-color: var(--pub-color-white);
   --pub-collections_icon-background-color: #aeaeae;
-  --pub-thumbnail_container-background-color: var(--pub-color-white); // same in dark mode
+  --pub-thumbnail_container-background-color: var(
+    --pub-color-white
+  ); // same in dark mode
 
-  --pub-full_page_mask-background-color: rgba(0, 0, 0, 0.5); // Used to make the inaccessible UI parts fade into the background.
+  --pub-full_page_mask-background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); // Used to make the inaccessible UI parts fade into the background.
   --pub_tag_simplebadge_warning-background-color: #c0392b;
   --pub_tag_simplebadge_warning-text-color: #f8f8f8;
   --pub-spinner_frame-background-color: rgba(0, 0, 0, 0.2);
@@ -88,42 +100,42 @@
   --pub-downloads-chart-color-0: var(--pub-markdown-alert-note);
   --pub-downloads-chart-color-bg-0: rgb(9, 105, 218, 0.3);
   --pub-downloads-chart-color-1: var(--pub-markdown-alert-caution);
-  --pub-downloads-chart-color-bg-1:rgb(207, 34, 46, 0.3);
+  --pub-downloads-chart-color-bg-1: rgb(207, 34, 46, 0.3);
   --pub-downloads-chart-color-2: var(--pub-markdown-alert-tip);
   --pub-downloads-chart-color-bg-2: rgb(26, 127, 55, 0.3);
   --pub-downloads-chart-color-3: var(--pub-markdown-alert-important);
   --pub-downloads-chart-color-bg-3: rgb(130, 80, 223, 0.3);
   --pub-downloads-chart-color-4: var(--pub-markdown-alert-warning);
-  --pub-downloads-chart-color-bg-4:rgb(154, 103, 0, 0.3);
+  --pub-downloads-chart-color-bg-4: rgb(154, 103, 0, 0.3);
   --pub-downloads-chart-color-5: #12a4af;
   --pub-downloads-chart-color-bg-5: rgb(18, 164, 175, 0.3);
 
   // Opacity values used to display monochrome icons.
   --pub-monochrome-opacity-initial: 0.6;
-  --pub-monochrome-opacity-hover: 1.0;
+  --pub-monochrome-opacity-hover: 1;
 }
 
 /// Variables that are specific to the light theme.
 :root {
   @include dash_variables.light-theme;
 
-  --pub-color-snowWhite:     #fafafa; // slight deviation from official snow-white (fffafa)
-  --pub-color-smokeWhite:    #f5f5f7; // slight deviation from official white-smoke (f5f5f5)
-  --pub-color-bubblesBlue:   #e7f8ff; // slight deviation from official bubbles-blue (e7feff)
+  --pub-color-snowWhite: #fafafa; // slight deviation from official snow-white (fffafa)
+  --pub-color-smokeWhite: #f5f5f7; // slight deviation from official white-smoke (f5f5f5)
+  --pub-color-bubblesBlue: #e7f8ff; // slight deviation from official bubbles-blue (e7feff)
 
-  --pub-neutral-bgColor:       var(--pub-color-white);
-  --pub-neutral-borderColor:   var(--pub-color-smokeWhite);
-  --pub-neutral-textColor:     var(--dash-surface-fgColor);
+  --pub-neutral-bgColor: var(--pub-color-white);
+  --pub-neutral-borderColor: var(--pub-color-smokeWhite);
+  --pub-neutral-textColor: var(--dash-surface-fgColor);
   --pub-neutral-hover-bgColor: var(--pub-color-snowWhite);
-  --pub-inset-bgColor:         var(--pub-color-smokeWhite);
-  --pub-selected-bgColor:      var(--pub-color-bubblesBlue);
+  --pub-inset-bgColor: var(--pub-color-smokeWhite);
+  --pub-selected-bgColor: var(--pub-color-bubblesBlue);
 
   // Note: these colors are copied from GitHub styles
-  --pub-markdown-alert-note:      #0969da; // accent-emphasis from GitHub
-  --pub-markdown-alert-tip:       #1a7f37; // success-emphasis from GitHub
+  --pub-markdown-alert-note: #0969da; // accent-emphasis from GitHub
+  --pub-markdown-alert-tip: #1a7f37; // success-emphasis from GitHub
   --pub-markdown-alert-important: #8250df; // done-emphasis from GitHub
-  --pub-markdown-alert-warning:   #9a6700; // attention-emphasis from GitHub
-  --pub-markdown-alert-caution:   #cf222e; // danger-emphasis from GitHub
+  --pub-markdown-alert-warning: #9a6700; // attention-emphasis from GitHub
+  --pub-markdown-alert-caution: #cf222e; // danger-emphasis from GitHub
 
   --pub-code-text-color: var(--pub-neutral-textColor);
   --pub-link-text-color: #1967d2;
@@ -148,7 +160,12 @@
   --pub-sort_control_hover-text-color: var(--pub-neutral-textColor);
   --pub-sort_control_selected-text-color: var(--pub-neutral-textColor);
   --pub-tag_simplebadge-text-color: #444444;
-  --pub-tag_sdkbadge-separator-color: rgba(25, 103, 210, 0.5); // #1967d2 + 0.5 opacity;
+  --pub-tag_sdkbadge-separator-color: rgba(
+    25,
+    103,
+    210,
+    0.5
+  ); // #1967d2 + 0.5 opacity;
   --pub-tag_sdkbadge-text-color: #1967d2;
 
   --pub-downloads-chart-frame-color: #d3d3d3;
@@ -165,24 +182,24 @@
 .dark-theme {
   @include dash_variables.dark-theme;
 
-  --pub-color-darkBlack:       #121317;
-  --pub-color-darkGunmetal:    #242b32;
-  --pub-color-darkGray:        #2f3034; /* derived from dark black by making it lighter */
-  --pub-color-darkSteelBlue:   #144466;
+  --pub-color-darkBlack: #121317;
+  --pub-color-darkGunmetal: #242b32;
+  --pub-color-darkGray: #2f3034; /* derived from dark black by making it lighter */
+  --pub-color-darkSteelBlue: #144466;
 
-  --pub-neutral-bgColor:       var(--pub-color-darkBlack);
-  --pub-neutral-borderColor:   var(--pub-color-darkGunmetal);
-  --pub-neutral-textColor:     var(--dash-surface-fgColor);
+  --pub-neutral-bgColor: var(--pub-color-darkBlack);
+  --pub-neutral-borderColor: var(--pub-color-darkGunmetal);
+  --pub-neutral-textColor: var(--dash-surface-fgColor);
   --pub-neutral-hover-bgColor: var(--pub-color-darkGray);
-  --pub-inset-bgColor:         var(--pub-color-darkGunmetal);
-  --pub-selected-bgColor:      var(--pub-color-darkSteelBlue);
+  --pub-inset-bgColor: var(--pub-color-darkGunmetal);
+  --pub-selected-bgColor: var(--pub-color-darkSteelBlue);
 
   // Note: these colors are copied from GitHub styles
-  --pub-markdown-alert-note:      #0969da; // accent-emphasis from GitHub
-  --pub-markdown-alert-tip:       #1f883d; // success-emphasis from GitHub
+  --pub-markdown-alert-note: #0969da; // accent-emphasis from GitHub
+  --pub-markdown-alert-tip: #1f883d; // success-emphasis from GitHub
   --pub-markdown-alert-important: #8250df; // done-emphasis from GitHub
-  --pub-markdown-alert-warning:   #9a6700; // attention-emphasis from GitHub
-  --pub-markdown-alert-caution:   #cf222e; // danger-emphasis from GitHub
+  --pub-markdown-alert-warning: #9a6700; // attention-emphasis from GitHub
+  --pub-markdown-alert-caution: #cf222e; // danger-emphasis from GitHub
 
   --pub-code-text-color: var(--pub-neutral-textColor);
   --pub-link-text-color: #47b0f8;
@@ -223,7 +240,9 @@
   --mdc-filled-button-container-color: rgba(255, 255, 255, 0.1);
   --mdc-filled-button-label-text-color: var(--pub-neutral-textColor);
   --mdc-protected-button-disabled-container-color: rgba(255, 255, 255, 0.1);
-  --mdc-protected-button-disabled-label-text-color: var(--pub-neutral-textColor);
+  --mdc-protected-button-disabled-label-text-color: var(
+    --pub-neutral-textColor
+  );
 
   // Pub-specific Material Design overrides
   --mdc_pub-data_table-border-color: var(--mdc-checkbox-unchecked-color);
