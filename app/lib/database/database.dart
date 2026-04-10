@@ -114,6 +114,9 @@ class PrimaryDatabase {
   }
 
   Future<void> migrateSchema() async {
+    await _adapter.execute('DROP TABLE IF EXISTS "schema_migrations";', []);
+    await _adapter.execute('DROP TABLE IF EXISTS "task_dependencies";', []);
+    await _adapter.execute('DROP TABLE IF EXISTS "tasks";', []);
     final migrationDb = Database<SchemaMigrationSchema>(
       _adapter,
       SqlDialect.postgres(),
