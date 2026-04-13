@@ -113,6 +113,17 @@ class PrimaryDatabase {
     }
   }
 
+  Future<Map> debug() async {
+    return {
+      'tasks': (await db.tasks.limit(10).fetch())
+          .map((e) => [e.package, e.finished])
+          .toList(),
+      'task_dependencies': (await db.task_dependencies.limit(10).fetch())
+          .map((e) => [e.package, e.dependency])
+          .toList(),
+    };
+  }
+
   Future<void> migrateSchema() async {
     final migrationDb = Database<SchemaMigrationSchema>(
       _adapter,
