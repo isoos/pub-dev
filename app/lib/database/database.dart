@@ -114,14 +114,18 @@ class PrimaryDatabase {
   }
 
   Future<Map> debug() async {
-    return {
-      'tasks': (await db.tasks.limit(10).fetch())
-          .map((e) => [e.package, e.finished])
-          .toList(),
-      'task_dependencies': (await db.task_dependencies.limit(10).fetch())
-          .map((e) => [e.package, e.dependency])
-          .toList(),
-    };
+    try {
+      return {
+        'tasks': (await db.tasks.limit(10).fetch())
+            .map((e) => [e.package, e.finished])
+            .toList(),
+        'task_dependencies': (await db.task_dependencies.limit(10).fetch())
+            .map((e) => [e.package, e.dependency])
+            .toList(),
+      };
+    } catch (e, st) {
+      return {'error': e.toString(), 'st': st.toString()};
+    }
   }
 
   Future<void> migrateSchema() async {
