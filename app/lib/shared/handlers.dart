@@ -135,7 +135,7 @@ shelf.Response rejectRobotsHandler(shelf.Request request) =>
 shelf.Response debugResponse([Map<String, dynamic>? data]) {
   final map = <String, dynamic>{
     'env': envConfig.debugMap(),
-    'x': 1,
+    'x': 2,
     'vm': {
       'numberOfProcessors': Platform.numberOfProcessors,
       'currentRss': ProcessInfo.currentRss,

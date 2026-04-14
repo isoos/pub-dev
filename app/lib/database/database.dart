@@ -115,12 +115,26 @@ class PrimaryDatabase {
 
   Future<Map> debug() async {
     try {
+      final migrationDb = Database<SchemaMigrationSchema>(
+        _adapter,
+        SqlDialect.postgres(),
+      );
       return {
         'tasks': (await db.tasks.limit(10).fetch())
             .map((e) => [e.package, e.finished])
             .toList(),
         'task_dependencies': (await db.task_dependencies.limit(10).fetch())
             .map((e) => [e.package, e.dependency])
+            .toList(),
+        'schema_migrations': (await migrationDb.schema_migrations.fetch())
+            .map(
+              (e) => [
+                e.schema_name,
+                e.script_name,
+                e.script_sha256,
+                e.executed_at,
+              ],
+            )
             .toList(),
       };
     } catch (e, st) {
